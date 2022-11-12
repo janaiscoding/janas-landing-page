@@ -1,5 +1,7 @@
 # janas-landing-page
 
+- [Live Demo](https://janaiscoding.github.io/janas-landing-page/)
+
 In this project, I will be following the Odin's Project template
 (https://www.theodinproject.com/lessons/foundations-landing-page)
 and create an amazing landing page of my own from scratch!
