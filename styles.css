@@ -47,12 +47,27 @@ table {
 	border-spacing: 0;
 }
 
-:root {
-    --blue-color: #1f2937;
-    --white-color: #E5E7EB;
-    --light-blue-color: #3882F6;
-    --white-text-color: #F9FAF8;
+.Dark {
+    --background-color: #1f2937;
+    --button-color: #3882F6;
+    --text-color: #F9FAF8;
+    --theme-name: "dark";
 }
+
+.Light {
+    --background-color: #F9FAF8;
+    --text-color: #1f2937;
+    --button-color: #3882F6;
+    --theme-name: "light";
+}
+
+
+.theme-toggle:hover {
+    cursor: pointer;
+    transform: scale(1.03);
+}
+
+
 body {
     font-family: 'LiberationMonoRegular', sans-serif;
     font-weight: normal;
@@ -60,12 +75,13 @@ body {
     display: flex; 
     flex-direction: column; 
     }
+
     .header {
         /* this is done */
             align-items: center;
             padding: 20px 300px;
             position: sticky;
-            background-color: var(--blue-color);
+            background-color: var(--background-color);
             display: flex;
             box-shadow:0 4px 4px 0 rgb(60 64 67 / 30%), 0 8px 12px 6px rgb(60 64 67 / 15%);
             top: 0;
@@ -75,7 +91,7 @@ body {
 .hero,
 .footer {
         /* this is done. style only */
-     background-color: var(--blue-color);
+     background-color: var(--background-color);
 }
 
 
@@ -91,8 +107,8 @@ body {
 .hero-subtext,
 .links  { 
     /* this is done. style only */
-    font-size: 1.2rem;
-    color: var(--white-color);
+    font-size: 1.1rem;
+    color: var(--text-color);
 }
 
 
@@ -110,7 +126,7 @@ body {
  .logo {
      /* this is done. style only */
      font-size: 1.5rem;
-     color: var(--white-text-color);
+     color: var(---text-color);
      font-weight: bold;
  }
  .hero-content {
@@ -123,7 +139,7 @@ body {
     /* this is done */
     font-size: 3rem;
     font-weight: bolder;
-    color: var(--white-text-color);
+    color: var(--text-color);
     flex-flow: wrap;
     max-width: 550px;
     padding-bottom: 20px;
@@ -143,8 +159,8 @@ body {
 
 .hero-button {
     /* this is done */
-    background-color:var(--light-blue-color);
-    color:  var(--white-color);
+    background-color:var(--button-color);
+    color:  var(--background-color);
     font-size: 1.1rem;
     padding: 8px 16px;
     text-decoration: none;
@@ -152,21 +168,26 @@ body {
     border: none;
     border-radius: 8px;
     margin: 20px 0;
+    cursor: pointer;
 }
  
 .second-part {
      /* this is done */
     padding-top: 100px;
     padding-bottom: 150px;
+    background-color: var(--background-color);
+    color: var(--text-color);
 }
 .second-part-title {
      /* this is done */
     display: flex;
     font-size: 2rem;
     font-weight: bolder;
-    color: var(--blue-color);
+    color: var(--background-color);
     justify-content: center;
     padding-bottom: 50px;
+    background-color: var(--background-color);
+    color: var(--text-color);
  
 }
 .second-part-list {
@@ -174,10 +195,12 @@ body {
     display: flex;
     justify-content: center;
     gap: 30px;
+    color: var(--text-color);
 }
 .cards {
      /* this is done */
     max-width: 250px;
+    color: var(--text-color);
 }
 .text {
      /* this is done */
@@ -192,15 +215,16 @@ body {
 
 
 .quote {
-    background-color: var(--white-color);
+    background-color: var(--background-color);
     padding: 100px 500px;
+    color: var(--text-color);
 }
 .quote-text {
-    background-color: var(--white-color);
+    background-color: var(--background-color);
     font-size: 2rem;
     font-weight:100;
     font-style:italic;
-    color: #1f2937;
+    color: var(--text-color);
 }
 .quote-author {
     font-size: 24px;
@@ -209,43 +233,52 @@ body {
     justify-content: flex-end;
     align-items: flex-end;
     padding-top: 20px;
+    color: var(--text-color);
 }
 
 .cta-container {
-    color: var(--white-color);
+    color: var(--background-color);
     display: flex;
     flex: 1;
-    background-color:var(--light-blue-color);
     margin: 100px 400px; 
     border-radius: 5px;
     padding: 30px 80px;
     justify-content: space-between;
+    background-color: var(--background-color);
+}
+.cta {
+    background-color: var(--background-color);
 }
 
 .cta-title {
     padding-bottom: 10px;
     font-size: 18px;
     font-weight: bold;
+    color: var(--text-color);
+    background-color: var(--background-color);
 } 
 
 .cta-subtitle {
     font-size:13px;
+    color: var(--text-color);
+    background-color: var(--background-color);
 }
 
 .cta-button {
-    background-color:var(--light-blue-color);
-    color:  var(--white-color);
+    background-color:var(--button-color);
+    color:  var(--text-color);
     font-size: 18px;
     padding: 8px 16px;
     text-decoration: none;
     text-align: center;
-    border:var(--white-text-color) 1px solid;
+    border:var(--text-color) 1px solid;
     border-radius: 8px;
+    cursor: pointer;
 
 }
 
 .footer {
-    color: var(--white-color);
+    color: var(--text-color);
     text-align: center;
     padding: 30px;
 }
@@ -260,6 +293,7 @@ ul {
 
 a {
     text-decoration: none;
-    color: var(--white-color);
+    color:var(--text-color);
+    cursor: pointer;
 }
 
