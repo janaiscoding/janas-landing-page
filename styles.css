@@ -55,6 +55,17 @@ body {
     display: flex; 
     flex-direction: column; 
     }
+    .header {
+        /* this is done */
+            align-items: center;
+            padding: 20px 300px;
+            position: sticky;
+            background-color: #1f2937;
+            display: flex;
+            box-shadow:0 4px 4px 0 rgb(60 64 67 / 30%), 0 8px 12px 6px rgb(60 64 67 / 15%);
+            top: 0;
+            justify-content: space-between;
+    } 
 
 .hero,
 .footer {
@@ -62,7 +73,7 @@ body {
      background-color: #1f2937;
 }
 
-.hero,
+
 .second-part,
 .quote,
 .cta-container,
@@ -79,19 +90,17 @@ body {
     color: #E5E7EB;
 }
 
-.nav-bar {
-    /* this is done */
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 30px 0px;
-} 
+
 
 .links {
     /* this is done. for inbetween images gaps, go to .cards */
-     display: flex;
-     justify-content: flex-end;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
      gap: 25px;
+ }
+ .links-member :hover {
+    transform: scale(1.03);
  }
  .logo {
      /* this is done. style only */
@@ -102,8 +111,7 @@ body {
  .hero-content {
     /* this is done */
     display: flex;
-    flex: 1;
-    padding: 100px 0;
+    padding: 100px 300px;
     justify-content: space-between;
  }
 .hero-header {
@@ -239,7 +247,7 @@ body {
 
 ul {
     list-style: none;
-    display: flex;
+
     margin: 0;
     padding: 0;
        
