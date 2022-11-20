@@ -49,6 +49,7 @@ table {
 
 :root.Dark {
     --background-color: #1f2937;
+    --border-color: #ccc;
     --button-color: #3882F6;
     --text-color: #F9FAF8;
     --theme-name: "Dark";
@@ -57,6 +58,7 @@ table {
 :root.Light {
     --background-color: #F9FAF8;
     --text-color: #1f2937;
+    --border-color: rgb(21, 21, 21);
     --button-color: #3882F6;
     --theme-name: "Light";
 }
@@ -73,6 +75,7 @@ body {
     font-style: normal;
     display: flex; 
     flex-direction: column; 
+    background-color: var(--background-color);
     }
 
 .header {
@@ -283,10 +286,63 @@ body {
     padding: 30px;
 }
 
+form {
+    margin: 20px auto;
+    width: 400px;
+    padding: 2rem;
+    border: 1px solid var(--border-color);
+    border-radius: 1em;
+    background-color: var(--background-color);
+  }
+
 ul {
     list-style: none;
-    margin: 0;
-    padding: 0;  
+    padding: 0;
+    margin: 0; 
+}
+
+form li + li {
+    margin-top: 1em;
+  }
+
+form legend {
+    padding-bottom: 15px;
+    text-align: center;
+    color: var(--text-color);
+    font-size: 1.5rem;
+}
+
+  label {
+    display: inline-block;
+    width: 90px;
+    text-align: right;
+    color: var(--text-color);
+  }
+
+  input,
+textarea {
+  font: 1em sans-serif;
+  width: 300px;
+  box-sizing: border-box;
+  border: 1px solid var(--border-color);
+}
+
+input:focus,
+textarea:focus {
+  border-color: #000;
+}
+
+textarea {
+  vertical-align: top;
+  height: 5em;
+}
+
+.button {
+  padding-left: 90px;
+}
+
+button {
+  margin-left: 0.5em;
 }
 
 a {
