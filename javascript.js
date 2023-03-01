@@ -15,3 +15,23 @@ function toggleTheme() {
 
 const toggleBtn = document.querySelector(".theme-toggle");
 toggleBtn.addEventListener('click', setTheme)
+
+const ctaBtn = document.querySelector('.hero-button')
+ctaBtn.addEventListener('click', () => {
+    promiseTest.then( 
+        console.log('you waited')
+    )
+}) 
+let promiseTest = new Promise((resolve, reject) => {
+    
+    setTimeout( () => {
+        const ctaBtn = document.querySelector('.hero-button')
+        if(ctaBtn.innerHTML === "Reach out"){
+            resolve(ctaBtn.innerHTML === "You clicked")
+        }
+        else{
+             reject("meow")
+            }
+    }, 300)
+
+})
