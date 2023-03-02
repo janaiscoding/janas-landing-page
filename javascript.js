@@ -16,26 +16,15 @@ function toggleTheme() {
 const toggleBtn = document.querySelector(".theme-toggle");
 toggleBtn.addEventListener('click', setTheme)
 
-const ctaBtn = document.querySelector('.hero-button')
-ctaBtn.addEventListener('click', () => {
-    promiseTest.then(function (){
-        console.log('it worked')
-    })
-}) 
+// API TESTS
+const img = document.querySelector('.api-img')
 
-
-
-let promiseTest = new Promise((resolve, reject) => {
-    const ctaBtn = document.querySelector('.hero-button')
-    setTimeout(function(){
-        alert('it worked but 3 seconds later');
-      }, 3000);  
-      
-    if (ctaBtn.innerHTML==="Reach out") {
-        resolve('Success')
-    }
-    else {
-        reject("failure")
-    }
+fetch('https://api.giphy.com/v1/gifs/translate?api_key=qYYK4VN0QiCjprWKsTCA6UPAnHrQEAju&s=peepo', {
+  mode: 'cors'
 })
-
+.then(function(response) {
+    return response.json();
+  })
+  .then(function(response) {
+    img.src = response.data.images.original.url;
+  });
