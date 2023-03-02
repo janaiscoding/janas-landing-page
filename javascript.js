@@ -18,20 +18,24 @@ toggleBtn.addEventListener('click', setTheme)
 
 const ctaBtn = document.querySelector('.hero-button')
 ctaBtn.addEventListener('click', () => {
-    promiseTest.then( 
-        console.log('you waited')
-    )
+    promiseTest.then(function (){
+        console.log('it worked')
+    })
 }) 
-let promiseTest = new Promise((resolve, reject) => {
-    
-    setTimeout( () => {
-        const ctaBtn = document.querySelector('.hero-button')
-        if(ctaBtn.innerHTML === "Reach out"){
-            resolve(ctaBtn.innerHTML === "You clicked")
-        }
-        else{
-             reject("meow")
-            }
-    }, 300)
 
+
+
+let promiseTest = new Promise((resolve, reject) => {
+    const ctaBtn = document.querySelector('.hero-button')
+    setTimeout(function(){
+        alert('it worked but 3 seconds later');
+      }, 3000);  
+      
+    if (ctaBtn.innerHTML==="Reach out") {
+        resolve('Success')
+    }
+    else {
+        reject("failure")
+    }
 })
+
