@@ -16,11 +16,11 @@ function toggleTheme() {
 const toggleBtn = document.querySelector(".theme-toggle");
 toggleBtn.addEventListener("click", setTheme);
 
-// API TESTS
-const img = document.querySelector(".api-img");
+//SET INITIAL IMAGE
 
+const img = document.querySelector(".api-img");
 fetch(
-  "https://api.giphy.com/v1/gifs/translate?api_key=qYYK4VN0QiCjprWKsTCA6UPAnHrQEAju&s=peepo",
+  `https://api.giphy.com/v1/gifs/translate?api_key=qYYK4VN0QiCjprWKsTCA6UPAnHrQEAju&s=angel`,
   {
     mode: "cors",
   }
@@ -31,3 +31,45 @@ fetch(
   .then(function (response) {
     img.src = response.data.images.original.url;
   });
+
+// API TESTS
+const generateGIF = function () {
+  fetch(
+    `https://api.giphy.com/v1/gifs/translate?api_key=qYYK4VN0QiCjprWKsTCA6UPAnHrQEAju&s=${searchedGif}`,
+    {
+      mode: "cors",
+    }
+  )
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (response) {
+      img.src = response.data.images.original.url;
+    })
+    .catch(function () {
+      if (searchedGif === "") {
+        alert("Please type something in the search bar");
+        return;
+      }
+    });
+};
+const getGifBtn = document.querySelector(".new-gif");
+getGifBtn.addEventListener("click", () => {
+  searchedGif = "cat";
+  generateGIF()
+});
+
+const searchBar = document.getElementById("search");
+const submitButton = document.querySelector(".search-button");
+let searchedGif;
+
+const handleUserInput = function () {
+  searchedGif = searchBar.value;
+  return searchedGif;
+};
+
+submitButton.addEventListener("click", (e) => {
+  e.preventDefault();
+  handleUserInput();
+  generateGIF();
+});

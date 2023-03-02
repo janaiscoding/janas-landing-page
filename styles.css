@@ -51,7 +51,13 @@ body {
   font-size: 1.1rem;
   color: var(--text-color);
 }
-
+.search {
+  padding: 20px;
+}
+.api-img {
+  max-width: 550px;
+  max-height: 550px;
+}
 .links {
   display: flex;
   align-items: flex-end;
@@ -71,7 +77,7 @@ body {
 
 .hero-content {
   display: flex;
-  padding: 100px 300px;
+  padding: 50px 300px;
   justify-content: space-between;
 }
 
@@ -82,6 +88,12 @@ body {
   flex-flow: wrap;
   max-width: 550px;
   padding-bottom: 20px;
+}
+.hero-right { 
+  padding-left: 100px;
+  display:flex;
+  flex-direction: column;
+  gap:20px;
 }
 
 .hero-subtext {
@@ -95,7 +107,12 @@ body {
   max-width: 600px;
   border-radius: 25px;
 }
-
+input{
+  padding: 8px 16px;
+  font-size: 1.1rem;
+  border: none;
+  margin: 20px 0;
+}
 .hero-button {
   /* this is done */
   background-color: var(--button-color);
