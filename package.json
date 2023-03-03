@@ -1,0 +1,23 @@
+{
+  "name": "janas-landing-page",
+  "version": "1.0.0",
+  "description": "- [Live Demo](https://janaiscoding.github.io/janas-landing-page/)",
+  "main": "javascript.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/janaiscoding/janas-landing-page.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/janaiscoding/janas-landing-page/issues"
+  },
+  "homepage": "https://github.com/janaiscoding/janas-landing-page#readme",
+  "devDependencies": {
+    "webpack-cli": "^5.0.1"
+  }
+}
