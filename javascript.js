@@ -19,57 +19,50 @@ toggleBtn.addEventListener("click", setTheme);
 //SET INITIAL IMAGE
 
 const img = document.querySelector(".api-img");
-fetch(
-  `https://api.giphy.com/v1/gifs/translate?api_key=qYYK4VN0QiCjprWKsTCA6UPAnHrQEAju&s=angel`,
-  {
-    mode: "cors",
-  }
-)
-  .then(function (response) {
-    return response.json();
-  })
-  .then(function (response) {
-    img.src = response.data.images.original.url;
-  });
-
-// API TESTS
-const generateGIF = function () {
-  fetch(
-    `https://api.giphy.com/v1/gifs/translate?api_key=qYYK4VN0QiCjprWKsTCA6UPAnHrQEAju&s=${searchedGif}`,
+async function getAngels() {
+  const response = await fetch(
+    `https://api.giphy.com/v1/gifs/translate?api_key=qYYK4VN0QiCjprWKsTCA6UPAnHrQEAju&s=angel`,
     {
       mode: "cors",
     }
-  )
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (response) {
-      img.src = response.data.images.original.url;
-    })
-    .catch(function () {
-      if (searchedGif === "") {
-        alert("Please type something in the search bar");
-        return;
+  );
+  const angelData = await response.json();
+  img.src = angelData.data.images.original.url;
+}
+getAngels();
+// API TESTS
+async function generateGIF(searchedGif) {
+  try {
+    const response = await fetch(
+      `https://api.giphy.com/v1/gifs/translate?api_key=qYYK4VN0QiCjprWKsTCA6UPAnHrQEAju&s=${searchedGif}`,
+      {
+        mode: "cors",
       }
-    });
-};
+    );
+    const searchedGifData = await response.json();
+    img.src = searchedGifData.data.images.original.url;
+  } catch (error) {
+    if (searchedGif === "") {
+      console.log("Please type something in the search bar");
+      img.src = "./images/cold-forest.jpg";
+    }
+  }
+}
 const getGifBtn = document.querySelector(".new-gif");
 getGifBtn.addEventListener("click", () => {
-  searchedGif = "cat";
-  generateGIF()
+  generateGIF("cat");
 });
 
 const searchBar = document.getElementById("search");
 const submitButton = document.querySelector(".search-button");
-let searchedGif;
 
 const handleUserInput = function () {
-  searchedGif = searchBar.value;
+  let searchedGif = searchBar.value;
   return searchedGif;
 };
 
 submitButton.addEventListener("click", (e) => {
   e.preventDefault();
-  handleUserInput();
-  generateGIF();
+  let searchedGif = handleUserInput();
+  generateGIF(searchedGif);
 });
